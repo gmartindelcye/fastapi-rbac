@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    ports:  # expose port 27017 to host
+      - 27017:27017
+    volumes:  # mount volume to persist data
+      - /opt/mongo/data:/data/db
